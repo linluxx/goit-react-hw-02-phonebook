@@ -1,20 +1,39 @@
+import {
+  ContactName,
+  ContactNumber,
+  ContactsItem,
+  ContactsList,
+  DeleteButton,
+} from './ContactList.styled';
+import PropTypes from 'prop-types';
 export const ContactList = ({ filtered, onDeleteContact }) => {
   return (
     <ul>
       {filtered.map(({ id, name, number }) => (
-        <li key={id}>
-          {name}
-          <span> {number}</span>
-          <button
+        <ContactsItem key={id}>
+          <ContactName> {name}</ContactName>
+          <ContactNumber> {number}</ContactNumber>
+          <DeleteButton
             type="button"
             onClick={() => {
               onDeleteContact(id);
             }}
           >
             Delete
-          </button>
-        </li>
+          </DeleteButton>
+        </ContactsItem>
       ))}
     </ul>
   );
+};
+
+ContactList.propTypes = {
+  filtered: PropTypes.arrayOf(
+    PropTypes.exact({
+      id: PropTypes.string,
+      name: PropTypes.string,
+      number: PropTypes.string,
+    })
+  ),
+  onDeleteContact: PropTypes.func,
 };

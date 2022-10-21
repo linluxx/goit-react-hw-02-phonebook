@@ -4,6 +4,7 @@ import { Filter } from './Filter/Filter';
 import { ContactList } from './ContactList/ContactList';
 import { Container, Title, ContactsTitle } from './App.styled';
 import { nanoid } from 'nanoid';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 export class App extends Component {
   state = {
     contacts: [
@@ -26,7 +27,9 @@ export class App extends Component {
     // );
     const names = this.state.contacts.map(item => item.name);
     if (names.includes(contact.name)) {
-      return alert(`${contact.name} is already in contacts`);
+      return Notify.warning(`${contact.name} is already in contacts`, {
+        position: 'center-top',
+      });
     }
     this.setState(({ contacts }) => ({
       contacts: [...contacts, contact],
