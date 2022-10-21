@@ -8,7 +8,7 @@ import {
 import PropTypes from 'prop-types';
 export const ContactList = ({ filtered, onDeleteContact }) => {
   return (
-    <ul>
+    <ContactsList>
       {filtered.map(({ id, name, number }) => (
         <ContactsItem key={id}>
           <ContactName> {name}</ContactName>
@@ -23,7 +23,7 @@ export const ContactList = ({ filtered, onDeleteContact }) => {
           </DeleteButton>
         </ContactsItem>
       ))}
-    </ul>
+    </ContactsList>
   );
 };
 
