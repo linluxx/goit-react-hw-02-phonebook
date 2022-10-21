@@ -5,13 +5,16 @@ import {
   ContactsList,
   DeleteButton,
 } from './ContactList.styled';
+import { FaRegUserCircle } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 export const ContactList = ({ filtered, onDeleteContact }) => {
   return (
     <ContactsList>
       {filtered.map(({ id, name, number }) => (
         <ContactsItem key={id}>
-          <ContactName> {name}</ContactName>
+          <ContactName>
+            <FaRegUserCircle /> {name}
+          </ContactName>
           <ContactNumber> {number}</ContactNumber>
           <DeleteButton
             type="button"

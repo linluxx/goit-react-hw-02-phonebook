@@ -17,7 +17,17 @@ const ContactsItem = styled.li`
     margin-bottom: 10px;
   }
 `;
-const ContactName = styled.span``;
+const ContactName = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  svg {
+    margin-right: 7px;
+    width: 23px;
+    height: 23px;
+    color: ${p => p.theme.colors.dark};
+  }
+`;
 const ContactNumber = styled.span`
   margin-right: 20px;
 `;

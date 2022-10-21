@@ -5,6 +5,7 @@ import { ContactList } from './ContactList/ContactList';
 import { Container, Title, ContactsTitle } from './App.styled';
 import { nanoid } from 'nanoid';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { FaUserFriends, FaPhoneAlt } from 'react-icons/fa';
 export class App extends Component {
   state = {
     contacts: [
@@ -60,9 +61,15 @@ export class App extends Component {
     const filtered = this.filterContacts();
     return (
       <Container onClick={evt => {}}>
-        <Title>Phonebook</Title>
+        <Title>
+          <FaPhoneAlt />
+          Phonebook
+        </Title>
         <ContactForm addContact={this.addContact} />
-        <ContactsTitle>Contacts</ContactsTitle>
+        <ContactsTitle>
+          <FaUserFriends />
+          Contacts
+        </ContactsTitle>
         <Filter filter={this.state.filter} onFilter={this.onFilter} />
         <ContactList filtered={filtered} onDeleteContact={this.deleteContact} />
       </Container>
